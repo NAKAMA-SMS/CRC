@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This document defines the authentication architecture for the NAKAMA / Christian Royal College (CRC) Learning Management System.
+This document defines the authentication architecture for the CRC LMS deployed at Christian Royal College.
 
 It establishes how users are:
 
@@ -70,7 +70,7 @@ A successfully authenticated user MUST still be checked against:
 
 # 3. Authentication Model
 
-NAKAMA uses a centralized identity model with two operational authentication environments:
+CRC uses a centralized identity model with two operational authentication environments:
 
 ```text
                          ONLINE MASTER
@@ -131,7 +131,7 @@ The identity architecture follows these principles:
 
 ### 5.1 One User Identity
 
-A person MUST have one logical NAKAMA user identity.
+A person MUST have one logical CRC user identity.
 
 Separate accounts MUST NOT be created merely because the user accesses:
 
@@ -2007,7 +2007,7 @@ The following rules MUST NOT be violated:
 
 # 74. Final Identity Principle
 
-NAKAMA authentication is built around one stable identity operating across two controlled environments:
+CRC authentication is built around one stable identity operating across two controlled environments:
 
 ```text
                    ONE USER IDENTITY

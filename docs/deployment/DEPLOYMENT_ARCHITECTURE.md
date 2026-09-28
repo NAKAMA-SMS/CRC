@@ -2,7 +2,9 @@
 
 ## 1. Purpose
 
-This document defines the deployment architecture for NAKAMA across its online/cloud environment and the school's local Windows server environment.
+This document defines the deployment architecture for CRC across its online/cloud environment and the school's local Windows server environment.
+
+The existing deployment path and installer filename retain the NAKAMA provider name. These identifiers refer to CRC deployment artifacts and are unchanged by this product-identity correction.
 
 The deployment architecture must support:
 
@@ -36,7 +38,7 @@ School LAN Clients
 
 # 2. Deployment Principles
 
-NAKAMA deployment follows these principles:
+CRC deployment follows these principles:
 
 1. Production deployments must be repeatable.
 2. Configuration must be externalized from application code.
@@ -1430,7 +1432,7 @@ Deployment architecture is complete when:
 
 # 80. Final Deployment Principle
 
-NAKAMA deployment must make the production system predictable, recoverable, secure, and maintainable.
+CRC deployment must make the production system predictable, recoverable, secure, and maintainable.
 
 The deployment lifecycle is:
 

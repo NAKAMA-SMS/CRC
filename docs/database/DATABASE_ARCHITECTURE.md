@@ -1,6 +1,6 @@
 # Database Architecture
 
-**Project:** NAKAMA / Christian Royal College LMS
+**Project:** CRC LMS
 **Document:** Database Architecture Specification
 **Status:** Baseline
 **Scope:** V1
@@ -11,7 +11,7 @@
 
 # 1. Purpose
 
-This document defines the database architecture for NAKAMA.
+This document defines the database architecture for CRC.
 
 It establishes:
 
@@ -67,7 +67,7 @@ The database architecture MUST follow these principles:
 
 # 3. Database Topology
 
-NAKAMA uses two primary database environments.
+CRC uses two primary database environments.
 
 ```text
                          INTERNET
@@ -1820,7 +1820,7 @@ The database is not merely a storage layer.
 
 It is part of the system's integrity boundary.
 
-NAKAMA MUST therefore treat data modeling, transactions, constraints, revisions, history, synchronization and recovery as core system behavior.
+CRC MUST therefore treat data modeling, transactions, constraints, revisions, history, synchronization and recovery as core system behavior.
 
 The final architecture MUST ensure that:
 

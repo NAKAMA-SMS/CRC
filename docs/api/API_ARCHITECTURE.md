@@ -1,6 +1,6 @@
 # API Architecture
 
-**Project:** NAKAMA / Christian Royal College LMS
+**Project:** CRC LMS
 **Document:** API Architecture and Standards
 **Status:** Baseline
 **Scope:** V1
@@ -9,7 +9,7 @@
 
 # 1. Purpose
 
-This document defines the API architecture and standards for NAKAMA.
+This document defines the API architecture and standards for CRC.
 
 It establishes the rules for:
 
@@ -71,7 +71,7 @@ The API layer MUST follow these principles:
 
 # 3. API Boundaries
 
-NAKAMA has several API boundaries.
+CRC has several API boundaries.
 
 ```text id="uwl2tv"
                     INTERNET

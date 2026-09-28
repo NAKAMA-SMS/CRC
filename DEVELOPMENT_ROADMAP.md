@@ -1,8 +1,10 @@
-# NAKAMA Development Roadmap
+# CRC Development Roadmap
 
 ## 1. Purpose
 
-This document defines the controlled development sequence for the NAKAMA system.
+This document defines the controlled development sequence for the CRC system.
+
+This roadmap covers CRC only. The NAKAMA corporate website is a separate future project; unrelated company products and services are outside this roadmap.
 
 It establishes:
 
@@ -69,7 +71,7 @@ Chat history is not a substitute for repository documentation.
 
 # 3. Development Philosophy
 
-NAKAMA is developed as a controlled vertical system rather than as a collection of disconnected features.
+CRC is developed as a controlled vertical system rather than as a collection of disconnected features.
 
 The development cycle is:
 
@@ -1435,7 +1437,7 @@ A feature being implemented is not equivalent to the system being accepted.
 
 # 42. Roadmap Completion Principle
 
-The NAKAMA development roadmap is complete when the implementation has progressed through all approved modules and the resulting system has passed the required functional, integration, security, offline, synchronization, recovery, deployment, and acceptance gates.
+The CRC development roadmap is complete when the implementation has progressed through all approved modules and the resulting system has passed the required functional, integration, security, offline, synchronization, recovery, deployment, and acceptance gates.
 
 The project must prioritize **correctness, security, reliability, maintainability, and documented behavior over development speed**.
 

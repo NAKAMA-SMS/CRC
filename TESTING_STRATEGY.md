@@ -1,8 +1,8 @@
-# NAKAMA Testing Strategy
+# CRC Testing Strategy
 
 ## 1. Purpose
 
-This document defines the testing strategy for the NAKAMA system.
+This document defines the testing strategy for the CRC system.
 
 It establishes:
 
@@ -25,7 +25,7 @@ It establishes:
 * acceptance testing;
 * release gates.
 
-The objective is to ensure that NAKAMA is not only functionally correct, but also secure, reliable, recoverable, maintainable, and capable of operating correctly in its online and offline environments.
+The objective is to ensure that CRC is not only functionally correct, but also secure, reliable, recoverable, maintainable, and capable of operating correctly in its online and offline environments.
 
 ---
 
@@ -76,7 +76,7 @@ Not every behavior requires a full end-to-end test, but every critical workflow 
 
 # 4. Test Levels
 
-NAKAMA uses the following test levels:
+CRC uses the following test levels:
 
 1. Static analysis and code quality checks
 2. Unit testing
@@ -1594,7 +1594,7 @@ Document
 Release
 ```
 
-For NAKAMA, correctness means more than displaying the right screen.
+For CRC, correctness means more than displaying the right screen.
 
 The system must demonstrate that:
 

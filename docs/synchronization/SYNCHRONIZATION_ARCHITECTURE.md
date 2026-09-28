@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This document defines the architecture and operational rules for synchronization between the NAKAMA online master system and each school-local NAKAMA server.
+This document defines the architecture and operational rules for synchronization between the CRC online master system and each school-local CRC server.
 
 The synchronization system exists to maintain controlled consistency between:
 
@@ -2172,7 +2172,7 @@ The following rules MUST NOT be violated:
 
 # 67. Final Synchronization Principle
 
-NAKAMA synchronization is not a database-copy mechanism.
+CRC synchronization is not a database-copy mechanism.
 
 It is a controlled distributed-data system in which:
 

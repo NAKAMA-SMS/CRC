@@ -1,8 +1,8 @@
-# NAKAMA — Christian Royal College Integrated Academic System
+# CRC — Christian Royal College Integrated Academic System
 
 ## 1. Document Purpose
 
-This document is the authoritative high-level context for the NAKAMA project.
+This document is the authoritative high-level context for the CRC project.
 
 It defines what the system is, why it exists, who uses it, the boundaries of the product, its major capabilities, its operating model, and the architectural principles that govern implementation.
 
@@ -14,11 +14,21 @@ Detailed technical behavior belongs in the appropriate requirements, architectur
 
 # 2. Project Identity
 
-**Project Name:** NAKAMA
+**Product Name:** CRC
 
-**Institution:** Christian Royal College (CRC)
+**School / Customer / Deployment Context:** Christian Royal College
 
 **System Type:** Integrated Academic Learning, Assessment, Practice, Analytics, Content Processing, and Offline School Computing Platform
+
+**Product:** CRC is the Academic Learning, Assessment, Practice, Analytics, and Offline School Computing System developed in this repository.
+
+**Company / Technology Provider:** NAKAMA develops/provides CRC.
+
+**Product Attribution:** CRC powered by NAKAMA
+
+**Repository Scope:** CRC LMS / Management System and its documented technical systems only. The NAKAMA corporate website is a separate future project outside this scope. Corporate marketing, service catalogs, pricing pages, blogs/resources, lead-generation architecture, unrelated NAKAMA products/services, and company management systems are not included.
+
+**Design-System Scope:** CRC Product Design System, with NAKAMA attribution where appropriate. The future NAKAMA corporate website requires its own separate design system.
 
 **Primary Environment:** School academic environment
 
@@ -28,7 +38,7 @@ Detailed technical behavior belongs in the appropriate requirements, architectur
 
 # 3. Project Objective
 
-NAKAMA is an academic technology platform designed to provide Christian Royal College with a reliable system for:
+CRC is an academic technology platform designed to provide Christian Royal College with a reliable system for:
 
 * Academic content management
 * Digital question-bank management
@@ -77,7 +87,7 @@ Internet connectivity is primarily used for synchronization and online functiona
 
 # 5. Product Architecture at a Glance
 
-NAKAMA consists of two major operational environments.
+CRC consists of two major operational environments.
 
 ## 5.1 Online / Cloud Environment
 
@@ -100,7 +110,7 @@ The online production database is PostgreSQL.
 
 ## 5.2 School Local Environment
 
-The school has a dedicated local server PC running the NAKAMA Local Server application.
+The school has a dedicated local server PC running the CRC Local Server application.
 
 The local server provides the operational academic environment over the school's LAN.
 
@@ -180,7 +190,7 @@ Public exposure of the local server is not part of the normal operating model.
 
 # 8. User Roles
 
-NAKAMA V1 contains five primary roles.
+CRC V1 contains five primary roles.
 
 ## 8.1 Super Admin / IT
 
@@ -431,7 +441,7 @@ Teacher assignments determine what appears in the teacher's dashboard and what d
 
 # 14. Academic Session Promotion
 
-NAKAMA must support academic-session promotion.
+CRC must support academic-session promotion.
 
 At the end of an academic session, the system can identify students eligible for promotion to the next academic class/arm.
 
@@ -1057,7 +1067,7 @@ The school local server is deployed on a dedicated Windows PC.
 
 The deployment includes:
 
-* NAKAMA Local Server executable/application
+* CRC Local Server executable/application
 * Local database
 * Local API
 * Local academic web interface
@@ -1077,7 +1087,7 @@ The local server should be architected as cooperating services/components rather
 Conceptually:
 
 ```text
-NAKAMA Local Server Manager
+CRC Local Server Manager
           │
           ├── LMS Application/API
           ├── Database
@@ -1104,7 +1114,7 @@ Backup strategy, retention, encryption, restore testing, and disaster-recovery p
 
 # 44. Scope Boundaries
 
-The NAKAMA project is an academic platform.
+The CRC project is an academic platform.
 
 The following are outside the core scope unless explicitly added later:
 
@@ -1177,7 +1187,7 @@ Academic structures, classes, arms, subjects, assessments, and operational setti
 
 # 46. Development Philosophy
 
-NAKAMA will be developed as a sequence of independently testable vertical modules.
+CRC will be developed as a sequence of independently testable vertical modules.
 
 The development lifecycle is:
 
@@ -1360,7 +1370,7 @@ These decisions should be documented before implementation begins.
 
 # 52. Implementation Standard
 
-NAKAMA must be built as a production-quality system suitable for real school operation.
+CRC must be built as a production-quality system suitable for real school operation.
 
 The implementation must prioritize:
 

@@ -1,10 +1,10 @@
-# NAKAMA — Christian Royal College Integrated Academic System
+# CRC — Christian Royal College Integrated Academic System
 
 # System Architecture
 
 ## 1. Document Purpose
 
-This document defines the technical architecture of the NAKAMA platform.
+This document defines the technical architecture of the CRC platform.
 
 It establishes:
 
@@ -34,11 +34,23 @@ This document is the primary technical architecture reference for implementation
 
 Detailed implementation decisions that materially affect architecture should be recorded as ADRs.
 
+### Product and Deployment Context
+
+| Entity | Relationship |
+| --- | --- |
+| NAKAMA | Company / technology provider developing/providing CRC |
+| CRC | Product / LMS & management system |
+| Christian Royal College | School / customer / deployment context |
+
+Product attribution may be **CRC powered by NAKAMA**. This relationship is contextual: NAKAMA is not a runtime architectural layer. The NAKAMA corporate website is a separate future project outside this repository.
+
+The CRC runtime topology remains Online Master System ↔ School Local Server ↔ School LAN ↔ Student / Teacher / Admin Devices, as detailed below.
+
 ---
 
 # 2. Architectural Goals
 
-NAKAMA architecture is designed around the following goals:
+CRC architecture is designed around the following goals:
 
 1. Reliable offline academic operation.
 2. Secure school-LAN operation.
@@ -57,7 +69,7 @@ NAKAMA architecture is designed around the following goals:
 
 # 3. Primary Architecture Model
 
-NAKAMA uses a hybrid online/offline architecture.
+CRC uses a hybrid online/offline architecture.
 
 ```text id="5l4ywx"
                          INTERNET
@@ -136,7 +148,7 @@ Cross-domain communication must use defined interfaces rather than direct uncont
 
 # 5. Runtime Environments
 
-NAKAMA has two primary runtime environments.
+CRC has two primary runtime environments.
 
 ## 5.1 Online Runtime
 
@@ -187,7 +199,7 @@ The conceptual architecture is:
 
 ```text id="2s2a7a"
 ┌───────────────────────────────────────────┐
-│           NAKAMA SERVER MANAGER            │
+│            CRC SERVER MANAGER             │
 │                                           │
 │ Configuration │ Health │ Logs │ Controls  │
 └──────────────────────┬────────────────────┘
@@ -1621,7 +1633,7 @@ School LAN
     ▼
 Windows Server PC
     │
-    ├── NAKAMA Server Manager
+    ├── CRC Server Manager
     ├── Local Application
     ├── SQLite
     ├── Sync Worker
@@ -2250,7 +2262,7 @@ The architecture is optimized for:
 
 # 100. Final Architectural Principle
 
-NAKAMA is not fundamentally an online website with an offline mode.
+CRC is not fundamentally an online website with an offline mode.
 
 It is a **distributed academic system with an online master environment and an independently operational school-local academic environment**.
 

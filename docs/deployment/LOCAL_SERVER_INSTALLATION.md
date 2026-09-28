@@ -2,7 +2,9 @@
 
 ## 1. Purpose
 
-This document defines the standard procedure for installing, configuring, securing, validating, and commissioning the NAKAMA local school server.
+This document defines the standard procedure for installing, configuring, securing, validating, and commissioning the CRC local school server.
+
+The existing deployment path and installer filename retain the NAKAMA provider name. These identifiers refer to CRC deployment artifacts and are unchanged by this product-identity correction.
 
 The local server provides the school's offline-capable LMS environment.
 
@@ -112,7 +114,7 @@ Before installation, confirm that the school has:
 * GPU/VRAM if local AI requirements require it;
 * network equipment capable of supporting the expected number of clients;
 * approved school network addressing;
-* access to the online NAKAMA environment for registration and synchronization.
+* access to the online CRC environment for registration and synchronization.
 
 ---
 
@@ -195,7 +197,7 @@ Do not begin application commissioning while Windows is in an unstable update/re
 
 # 9. Windows Security Preparation
 
-Before installing NAKAMA:
+Before installing CRC:
 
 * enable Windows Firewall;
 * keep Microsoft Defender or approved endpoint protection enabled;
@@ -1441,7 +1443,7 @@ When replacing the physical server:
 2. verify current synchronization;
 3. create a current backup;
 4. install supported Windows;
-5. install the approved NAKAMA release;
+5. install the approved CRC release;
 6. restore required data;
 7. register replacement installation;
 8. retire the old installation identity;

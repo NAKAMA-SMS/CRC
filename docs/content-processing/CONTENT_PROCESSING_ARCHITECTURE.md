@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This document defines the architecture for NAKAMA's online content-processing subsystem.
+This document defines the architecture for CRC's online content-processing subsystem.
 
 The subsystem converts uploaded academic materials into structured, reviewable, reusable academic content.
 
@@ -2014,7 +2014,7 @@ The content-processing subsystem is complete only when:
 
 # 87. Final Processing Principle
 
-NAKAMA's content-processing architecture treats every uploaded academic document as **untrusted source material** and every published question as **reviewed academic data**.
+CRC's content-processing architecture treats every uploaded academic document as **untrusted source material** and every published question as **reviewed academic data**.
 
 The complete trust transition is:
 

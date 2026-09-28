@@ -1,6 +1,6 @@
 # Security Requirements
 
-**Project:** NAKAMA / Christian Royal College LMS
+**Project:** CRC LMS
 **Document:** Security Requirements Specification
 **Status:** Baseline
 **Scope:** V1
@@ -10,7 +10,7 @@
 
 ## 1. Purpose
 
-This document defines the security requirements, controls, threat model, security boundaries, and acceptance criteria for the NAKAMA system.
+This document defines the security requirements, controls, threat model, security boundaries, and acceptance criteria for the CRC system.
 
 Security applies across:
 
@@ -44,7 +44,7 @@ Security is a system-wide requirement and must not be treated as a separate feat
 
 # 2. Security Objectives
 
-NAKAMA MUST provide:
+CRC MUST provide:
 
 1. Confidentiality of protected academic and account data.
 2. Integrity of academic records and assessment results.
@@ -132,7 +132,7 @@ The system MUST treat the following as separate trust boundaries:
 
 # 4. Security Baseline
 
-NAKAMA application security MUST be designed against the principles and control areas of the OWASP Application Security Verification Standard.
+CRC application security MUST be designed against the principles and control areas of the OWASP Application Security Verification Standard.
 
 The implementation MUST address, where applicable:
 
@@ -1781,7 +1781,7 @@ A security-sensitive feature is complete only when:
 
 # 87. Final Security Principle
 
-NAKAMA MUST be designed under the assumption that:
+CRC MUST be designed under the assumption that:
 
 * clients can be modified,
 * browsers can be manipulated,

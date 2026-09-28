@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This document defines the architecture for NAKAMA's offline school operation.
+This document defines the architecture for CRC's offline school operation.
 
 The offline system allows the school to continue performing critical academic activities when internet connectivity is unavailable.
 
@@ -34,7 +34,7 @@ The offline architecture covers:
 
 # 2. Offline Operating Principle
 
-NAKAMA uses a hybrid architecture:
+CRC uses a hybrid architecture:
 
 ```text
                          INTERNET
@@ -95,7 +95,6 @@ At minimum:
 
 The following are primarily online:
 
-* public/school website;
 * cloud dashboards;
 * parent dashboard;
 * content processing;
@@ -146,7 +145,7 @@ Sync Later
 
 # 5. Local Server
 
-The school-local server is a Windows PC running the NAKAMA local server application.
+The school-local server is a Windows PC running the CRC local server application.
 
 The application is distributed as a Windows executable:
 
@@ -2288,7 +2287,7 @@ The offline architecture is complete only when:
 
 # 103. Final Offline Principle
 
-The NAKAMA offline architecture is designed around one central rule:
+The CRC offline architecture is designed around one central rule:
 
 > **The school must be able to continue teaching, practicing, assessing, scoring, and recording academic activity even when the internet disappears.**
 

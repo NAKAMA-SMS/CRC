@@ -2,13 +2,23 @@
 
 ## 1. Purpose
 
-This repository contains the source code, architecture, documentation, tests, and engineering decisions for the LMS project.
+This repository contains the source code, architecture, documentation, tests, and engineering decisions for the CRC LMS project.
 
 All AI coding agents, including Codex, must treat this repository as the primary source of truth for the project.
 
 The objective is to build production-quality software through controlled, testable, documented engineering processes.
 
 This project must not be developed through assumptions, improvisation, or dependency on conversational memory.
+
+## Product and Repository Boundary
+
+CRC is the product/system developed in this repository. NAKAMA is the technology company developing/providing CRC. Christian Royal College is the school/customer/deployment context.
+
+CRC may use the attribution **CRC powered by NAKAMA**.
+
+This repository covers the CRC LMS / Management System and its documented technical systems only. The NAKAMA corporate website is a separate future project outside this repository. Do not introduce corporate website pages, architecture, modules, or requirements here. Unrelated NAKAMA products, services, and company management systems require explicit scope approval.
+
+Design-system work in this repository is the **CRC Product Design System**, with NAKAMA attribution where appropriate. The future corporate website requires its own separate design-system project.
 
 ---
 

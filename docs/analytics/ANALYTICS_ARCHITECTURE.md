@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This document defines the architecture for NAKAMA's analytics and learning-intelligence subsystem.
+This document defines the architecture for CRC's analytics and learning-intelligence subsystem.
 
 The analytics subsystem transforms authoritative academic activity into reliable, explainable, role-scoped insights.
 
@@ -1453,7 +1453,7 @@ Analytics architecture is complete when:
 
 # 81. Final Analytics Principle
 
-NAKAMA analytics exists to turn reliable academic records into useful intelligence without compromising academic integrity.
+CRC analytics exists to turn reliable academic records into useful intelligence without compromising academic integrity.
 
 The fundamental architecture is:
 

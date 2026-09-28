@@ -2,7 +2,7 @@
 
 ## 1. Purpose
 
-This document defines the architecture for NAKAMA's local AI capabilities.
+This document defines the architecture for CRC's local AI capabilities.
 
 The local AI system provides academic assistance through an AI runtime hosted on the school's local server.
 
@@ -146,7 +146,7 @@ An AI crash MUST NOT crash:
 
 Ollama is the local model runtime used to execute supported language models on the school server.
 
-NAKAMA communicates with Ollama through the internal AI gateway rather than allowing frontend clients to communicate directly with Ollama.
+CRC communicates with Ollama through the internal AI gateway rather than allowing frontend clients to communicate directly with Ollama.
 
 The browser/client MUST NOT directly access the Ollama service.
 
@@ -176,7 +176,7 @@ This provides:
 
 # 6. AI Gateway
 
-The AI Gateway is the mandatory control layer between NAKAMA and local AI models.
+The AI Gateway is the mandatory control layer between CRC and local AI models.
 
 It is responsible for:
 
@@ -350,7 +350,7 @@ The principal's AI context must be restricted to data the principal is authorize
 
 # 13. Role-Aware AI Authorization
 
-AI access is subject to the same authorization architecture as the rest of NAKAMA.
+AI access is subject to the same authorization architecture as the rest of CRC.
 
 The AI system MUST know:
 
@@ -1529,7 +1529,7 @@ The local AI architecture is complete when:
 
 # 71. Final Local AI Principle
 
-NAKAMA's local AI system is an academic assistant operating inside a controlled LMS environment.
+CRC's local AI system is an academic assistant operating inside a controlled LMS environment.
 
 Its architecture is:
 

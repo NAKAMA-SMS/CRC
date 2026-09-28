@@ -1,10 +1,10 @@
-# NAKAMA — Christian Royal College Integrated Academic System
+# CRC — Christian Royal College Integrated Academic System
 
 # Requirements Specification
 
 ## 1. Document Purpose
 
-This document defines the functional and non-functional requirements for the NAKAMA system.
+This document defines the functional and non-functional requirements for the CRC system.
 
 It converts the product context into precise, testable requirements.
 
@@ -21,6 +21,12 @@ The requirements in this document define:
 * How the system must be validated
 
 Requirements are identified using stable requirement IDs so they can be referenced by implementation tasks, tests, issues, ADRs, and acceptance criteria.
+
+### Product Ownership and Scope
+
+CRC is the system whose requirements are defined here. NAKAMA is the technology company developing/providing CRC; Christian Royal College is the school/customer/deployment context. Product attribution may be **CRC powered by NAKAMA**.
+
+These requirements cover the CRC LMS / Management System and its documented technical systems only. The NAKAMA corporate website is a separate future project outside this scope, as are unrelated NAKAMA products, services, corporate marketing, and company management systems.
 
 ---
 
@@ -40,7 +46,7 @@ V1 implementation must satisfy all `MUST` requirements.
 
 # 3. System Actors
 
-NAKAMA V1 contains five primary application roles:
+CRC V1 contains five primary application roles:
 
 1. Super Admin / IT
 2. Principal
