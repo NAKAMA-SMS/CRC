@@ -167,7 +167,7 @@ LMSServer.exe
     └── Health Monitoring
 ```
 
-Components should remain logically separated even when distributed through a single installer.
+Components should remain logically separated even when distributed through a single installer. ADR-0002 establishes only the Module 00 self-contained CRC.Api Windows publishing/service-host foundation. LMSServer.exe remains the Module 05 manager; installer, service registration, production secrets and commissioning are not delivered by Module 00.
 
 ---
 

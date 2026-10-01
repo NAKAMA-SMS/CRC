@@ -97,7 +97,7 @@ CRC uses two primary database environments.
                   └───────────────────┘
 ```
 
-The two databases have related domain models but MUST NOT be assumed to be identical physical implementations.
+The two databases have related domain models but MUST NOT be assumed to be identical physical implementations. ADR-0002 establishes separate EF Core provider contexts/migrations for Module 00, with migration history only and no domain schema. Entity examples below are not executable contracts until specified by their owning modules.
 
 ---
 

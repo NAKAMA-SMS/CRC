@@ -1269,7 +1269,7 @@ The hierarchy of authority is:
 11. Technical documentation
 12. Source code and tests
 
-Where documents conflict, the conflict must be identified and resolved rather than silently choosing one.
+Where documents conflict, the conflict must be identified and resolved rather than silently choosing one. ADR-0001 clarifies this hierarchy and scoped module acceptance; PROJECT_STATE records facts and authorized scope, not exceptions to requirements.
 
 ---
 
@@ -1364,7 +1364,7 @@ The next architecture work must define:
 * Testing architecture
 * CI/CD strategy
 
-These decisions should be documented before implementation begins.
+Decisions must be documented before implementation of the work they affect. Module 00 is bounded by ADR-0001 and ADR-0002 in `docs/decisions/`; later decisions are explicitly deferred with owners and gates in PROJECT_STATE.md. This does not permit guessing or implementing a deferred behavior.
 
 ---
 

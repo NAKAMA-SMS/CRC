@@ -426,7 +426,7 @@ Collections MAY use:
 }
 ```
 
-The exact response envelope MUST be standardized before implementation begins.
+ADR-0002 standardizes the foundation response/error envelopes and health endpoints before Module 00 implementation. Other example endpoints and domain contracts remain illustrative until established in their owning module specifications.
 
 ---
 

@@ -19,7 +19,7 @@ It establishes:
 * regression requirements;
 * completion criteria.
 
-The roadmap is subordinate to the project's requirements, architecture, security requirements, and other approved technical specifications.
+Document precedence follows AGENTS.md section 2, clarified in `docs/decisions/ADR-0001-authority-and-module-gates.md`. This roadmap allocates delivery and acceptance; it cannot waive product or mandatory security requirements. Conflicts require an explicit documented resolution.
 
 The roadmap must not introduce product requirements that are not defined elsewhere.
 
@@ -176,7 +176,7 @@ The high-level dependency chain is:
 09 Security, Deployment & Acceptance
 ```
 
-Some modules have cross-module dependencies and may require integration work before their formal module completion.
+Cross-module acceptance is allocated explicitly in ADR-0001. A module freezes only its fully tested allocated baseline; whole-system architecture definitions of done remain open until all required integrations pass. Local host/SQLite start in 00, local identity in 01 and real offline CBT in 03; 05 adds managed installation/synchronization. Teacher derived analytics and analytics-grounded AI integration complete in 08. No later obligation may be recorded as passed at an earlier freeze.
 
 The dependency chain must not be interpreted as permission to bypass required prerequisites.
 
@@ -205,7 +205,7 @@ This module establishes the project engineering foundation, including the infras
 * observability foundations;
 * shared technical utilities.
 
-The exact framework and library choices must follow the approved repository decisions.
+The foundation choices are established in ADR-0002. The executable scope and evidence gates are `modules/00-foundation/MODULE_PLAN.md` and `modules/00-foundation/ACCEPTANCE_CRITERIA.md`; these include both Online/PostgreSQL and Local/SQLite foundations, without future business functionality.
 
 ## Dependencies
 

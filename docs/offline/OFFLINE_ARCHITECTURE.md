@@ -2166,7 +2166,7 @@ Administrators MUST be able to trigger a controlled manual retry.
 
 # 101. Offline Definition of Done
 
-The offline architecture is complete only when:
+This is a whole-architecture definition of done, not solely the Module 05 gate. ADR-0001 allocates the local foundation to 00, identity to 01, academic/CBT behavior to 02/03, management/sync to 05 and AI integration to 07. Every item remains required at its applicable integration gate. The offline architecture is complete only when:
 
 ### Server
 

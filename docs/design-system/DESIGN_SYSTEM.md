@@ -2,7 +2,7 @@
 # Canonical Product Design System
 
 **Design Language:** Academic Operations  
-**Canonical Path:** `design-system/DESIGN_SYSTEM.md`  
+**Canonical Path:** `docs/design-system/DESIGN_SYSTEM.md`
 **Version:** 2.0.0  
 **Status:** Canonical / Active  
 **Owner:** NAKAMA Product & Engineering  
@@ -89,13 +89,13 @@ It governs:
 - Print Outputs
 - Responsive Interfaces
 
-No product domain owns an independent visual system.
+No product domain owns an independent visual system. ADR-0001 defines repository authority and scope interpretation: blueprint-only attendance, timetable, assignment/submission, disciplinary, announcement, manual grading/authoring and similar workflows are not approved product requirements. Implement only traced requirements in the assigned module. This Markdown governs visual values where the reference PNG differs; missing assets/tokens must be resolved before affected UI work, not invented. Module 00 requires only a minimal foundation screen, not this entire component library.
 
 ---
 
 ## 00.2 Authority Order
 
-When rules appear to conflict:
+Repository-wide precedence follows AGENTS.md section 2 and ADR-0001. The following is a UI constraint ordering, not a replacement repository hierarchy. Product and security rules cannot be overridden by presentation examples:
 
 ```text
 Security requirements
@@ -276,7 +276,7 @@ AI agents MUST:
 For frontend, UI, UX, accessibility, responsive, LMS, CBT,
 offline, AI-interface, analytics, or component work:
 
-Read `design-system/DESIGN_SYSTEM.md`.
+Read `docs/design-system/DESIGN_SYSTEM.md`.
 
 Start with §00 and retrieve only the relevant sections.
 
@@ -3487,10 +3487,12 @@ Failed
 Example:
 
 ```text
-You're offline. Changes will be saved on this device and synced when a connection becomes available.
+Internet is unavailable. Work confirmed as saved by the school server remains available locally; cloud synchronization will resume when connected.
 ```
 
 ---
+
+Do not display this example unless the school server is reachable. If the browser cannot reach it, distinguish unsent changes from server-confirmed saves and show the actual recovery state. Browser storage is not authoritative, and no generic device-only offline guarantee is established.
 
 ## 24.3 Stale Data
 
@@ -3597,15 +3599,7 @@ Where possible, identify relevant sources used by AI.
 
 ## 25.6 Consequential Data
 
-AI should not silently finalize:
-
-- grades;
-- disciplinary records;
-- security changes;
-- account changes;
-- published institutional communication.
-
-Human confirmation is required.
+AI must not change grades, permissions, academic records, publication state or synchronization state. Human confirmation does not grant AI authority to perform these operations. Authorized human workflows remain deterministic and separately permission-checked. This section creates no disciplinary or communication feature requirements.
 
 ---
 
@@ -4295,23 +4289,7 @@ Explanation without revealing restricted data.
 
 ## 33.1 Target Repository
 
-```text
-CRC/
-├── apps/
-│   ├── web/
-│   └── offline/
-│
-├── packages/
-│   ├── design-tokens/
-│   ├── ui/
-│   └── icons/
-│
-├── design-system/
-│   └── DESIGN_SYSTEM.md
-│
-├── docs/
-└── modules/
-```
+The Module 00 repository layout is defined by ADR-0002 in `docs/decisions/`. The canonical design document is `docs/design-system/DESIGN_SYSTEM.md`. There is one client in `apps/web/`; a separate offline client is not selected. The package examples below describe possible later extraction boundaries, not mandatory Module 00 packages or authorization to scaffold future components.
 
 ---
 
@@ -4844,7 +4822,7 @@ Refined:
 **Authoritative path**
 
 ```text
-design-system/DESIGN_SYSTEM.md
+docs/design-system/DESIGN_SYSTEM.md
 ```
 
 Any product UI rule outside this file must either conform to this specification or be formally incorporated through the governance process.

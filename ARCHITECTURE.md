@@ -2162,11 +2162,13 @@ Academic Core
     ↓
 Assessment / CBT
     ↓
-Teacher / Analytics
+Teacher
     ↓
 Offline / Sync
     ↓
 Content Processing / AI
+    ↓
+Analytics
     ↓
 Hardening / Acceptance
 ```
@@ -2199,7 +2201,7 @@ The following rules are mandatory:
 
 # 97. Architectural Decision Areas
 
-The following areas require dedicated ADRs before or during their implementation:
+The following areas require recorded decisions before implementing the work they affect. Related foundation choices are grouped in ADR-0002 rather than creating an ADR per library. ADR-0001 defines timing and acceptance boundaries; PROJECT_STATE records later decision gates:
 
 * Technology stack
 * Authentication/session strategy
@@ -2236,7 +2238,7 @@ The final technology stack should be selected based on:
 * Local AI integration
 * Packaging capability
 
-Technology selection must be recorded in an ADR before implementation of the affected modules.
+Technology selection must be recorded in an ADR before implementation of the affected modules. ADR-0002 establishes the Module 00 runtime, client, provider, API, configuration, testing and Windows publishing baseline; later component choices remain deferred as recorded in PROJECT_STATE.
 
 ---
 

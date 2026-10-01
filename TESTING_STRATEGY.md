@@ -1232,7 +1232,7 @@ Tests must not be weakened merely to produce a passing build.
 
 # 60. Module Testing Gates
 
-Each development module has a testing gate.
+Each development module has a testing gate. ADR-0001 allocates cross-module obligations without waiving them: freeze covers the fully verified module baseline, not unimplemented future integrations. Module 03 retains actual offline CBT tests; managed installation/sync regression follows in 05, AI integration in 07 and derived analytics integration in 08. Module 00 evidence is specified in `modules/00-foundation/ACCEPTANCE_CRITERIA.md`.
 
 ## Module 00
 

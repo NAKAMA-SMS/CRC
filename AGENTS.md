@@ -47,7 +47,7 @@ The general context hierarchy is:
 
 If two documents conflict, the conflict must be identified and resolved through an explicit documented decision.
 
-Do not silently choose one interpretation.
+Do not silently choose one interpretation. The explicit precedence, decision-timing and cross-module acceptance clarification is recorded in `docs/decisions/ADR-0001-authority-and-module-gates.md`. The hierarchy above remains unchanged; project state and delivery sequencing cannot waive product or mandatory security requirements.
 
 ---
 

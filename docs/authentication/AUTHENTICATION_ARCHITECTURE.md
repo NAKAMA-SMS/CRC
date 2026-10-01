@@ -1912,7 +1912,7 @@ Authentication is complete only when:
 
 # 72. Definition of Done
 
-The authentication architecture is considered implemented only when:
+This is a whole-architecture definition of done. ADR-0001 allocates the Module 01 online/local identity baseline, Module 02 academic-scope integration and Module 05 secure credential synchronization; later items cannot be claimed complete at the Module 01 freeze. The authentication architecture is considered implemented only when:
 
 ### Architecture
 
