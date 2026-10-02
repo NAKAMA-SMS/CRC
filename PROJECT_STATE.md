@@ -1,7 +1,7 @@
 # CRC Project State
 
 Updated: 2026-10-02
-Current phase: Module 00 implementation delivered; acceptance BLOCKED; NOT FROZEN.
+Current phase: Module 00 implementation complete; remaining validation DEFERRED under the approved ADR-0001 gate exception; NOT FROZEN.
 Product: CRC, powered by NAKAMA; Christian Royal College is the customer context. Corporate website and unrelated company systems remain outside this repository.
 
 ## Verified baseline and work performed
@@ -16,7 +16,7 @@ Module 00 now contains five production projects (API, Foundation, PostgreSQL, SQ
 - [ADR-0002](docs/decisions/ADR-0002-module-00-technical-foundation.md): .NET/ASP.NET Core 10, C# 14, React 19.3/TypeScript 6.0/Vite 8.3, Node 24/npm 11 for builds; EF Core 10 with separate PostgreSQL/SQLite contexts and migrations; explicit host/API/config/logging/health contracts; xUnit/Playwright/GitHub Actions; self-contained Windows publishing foundation.
 - [Module plan](modules/00-foundation/MODULE_PLAN.md), [acceptance criteria](modules/00-foundation/ACCEPTANCE_CRITERIA.md), [setup](modules/00-foundation/SETUP.md) and [evidence](modules/00-foundation/EVIDENCE.md) define the implemented foundation and remaining acceptance gates.
 
-The selected stack lines were preserved and exact packages resolved. ADR-0002 was clarified for an explicit Windows publication runtime graph, fail-closed PostgreSQL transport, and a distinct bounded cold-start budget; it does not change product scope or waive the two-second health-probe budget. No new ADR was necessary. Remaining Module 00 blockers are execution evidence, not a license to begin later modules.
+The selected stack lines were preserved and exact packages resolved. ADR-0002 was clarified for an explicit Windows publication runtime graph, fail-closed PostgreSQL transport, and a distinct bounded cold-start budget; it does not change product scope or waive the two-second health-probe budget. No new ADR was necessary. Remaining Module 00 gaps are execution evidence. The owner-approved ADR-0001 exception below changes their timing, without waiving pass conditions or authorizing later implementation.
 
 ## Deferred decision register
 
@@ -59,6 +59,28 @@ Passed: locked restores; .NET formatting/Release build with zero warnings; front
 
 Fixed defects: test bootstrap/controller discovery, test cancellation compliance, SQLite fixture pooling, publication-induced lockfile drift, cold-start timeout scoping and provider transport defaults. No known local failure is being waived. Required remaining evidence: fresh hosted Linux/Windows runs (F00-01/F00-15), clean Windows VM with SDK/runtime/Node absent and graceful shutdown (F00-13), OS-level Internet denial for the host (F00-02), and the resulting overall handoff gate (F00-17). No hosted CI run or clean-VM validation has occurred. A VM availability question was sent; no environment has been supplied. Later decision gates and integration obligations above are unchanged.
 
+## Module 00 closure pass — 2026-10-02
+
+The implementation is now committed at `8adf1ab06ec457578a09925ddf8d34685f70c8f8` on main, matching origin/main at inspection; the initial worktree was clean. Earlier statements about unavailable hosted evidence above describe the implementation session and are superseded by this closure record.
+
+Verified the existing [GitHub Actions run 36969033339](https://github.com/NAKAMA-SMS/CRC/actions/runs/36969033339), attempt 1, completed successfully at 05:31:56 UTC for that exact commit. Both jobs passed locked restores, quality checks, builds and security checks. Linux: 38 tests passed, zero failed/skipped, real PostgreSQL 17.11 and SQLite 3.53.3; Windows: 33 tests passed, zero failed/skipped, plus self-contained publication/migrations/abrupt restart. Each job passed one browser test. Downloaded both evidence ZIPs, independently verified their SHA-256 against GitHub, and inspected TRX/JUnit, versions, OpenAPI and Windows smoke reports. EVIDENCE.md contains job/artifact links and hashes; archives are retained under ignored `artifacts/evidence/hosted-36969033339/`. This pass reviewed actual hosted executions; no local suite rerun or new CI trigger is claimed.
+
+F00-01 and F00-15 are now PASS. F00-03 through F00-12, F00-14 and F00-16 remain PASS. F00-02, F00-13 and F00-17 remain BLOCKED. Module 00 is NOT FROZEN. No implementation or ADR change was needed for the successful hosted checks. Action-runtime deprecation warnings are recorded in evidence; no CI failure was suppressed.
+
+VM access preflight failed: `Get-VM` returned a Hyper-V permission error on BATURE. This does not establish whether a suitable guest exists. A clean Windows 11 x64 VM name/access method has been requested; none has been verified. SDK/runtime/Node absence, non-admin guest operation, graceful shutdown/restart and OS-level outbound isolation remain unexecuted. Host firewall and installed runtimes were not changed. Access to the isolated guest is the remaining external prerequisite; the Windows Server CI runner cannot satisfy this criterion.
+
+## Approved validation deferral ? 2026-10-02
+
+The owner confirmed that no VM is available and approved documenting the specific gate exception in ADR-0001. F00-02, F00-13 and F00-17 are now **DEFERRED / NOT PASSED**, not waived or satisfied; earlier BLOCKED entries above describe the pre-exception state. Module 00 implementation is complete, acceptance is incomplete, and the module remains NOT FROZEN. Hosted F00-01/F00-15 evidence and the other passing evidence are unchanged. No new test execution is claimed by this documentation update.
+
+| Outstanding evidence | Owner and hard deadline |
+|---|---|
+| F00-02: Local host with OS-level outbound Internet denied | Module 00 acceptance workstream; before Module 05 starts |
+| F00-13: clean Windows 11 x64 VM without SDK/runtime/Node; non-admin operation, graceful stop/restart and persistence/integrity | Module 00 acceptance workstream; before Module 05 starts |
+| F00-17: final evidence reconciliation and foundation freeze | Module 00 acceptance workstream; after F00-02/F00-13 pass and before Module 05 starts |
+
+Modules 01-04 may progress in sequence under this limited exception, with their own decision, scope, acceptance and regression gates intact. Module 03 offline CBT/recovery remains mandatory. The risk is unverified clean-host/network-isolation behavior and potential rework in dependent modules. Any newly exposed foundation defect blocks affected work and requires correction; no production deployment is approved. Module 05 cannot start until real evidence closes all three criteria and Module 00 is frozen.
+
 ## Exact next action
 
-Review the Module 00 changes, run the committed source through both hosted CI jobs, and execute the documented clean Windows VM procedure with host Internet blocked. Record run links/manual evidence, fix any failures, and close F00-01/02/13/15/17 before freezing Module 00. Do not begin Module 01 until that freeze and explicit resolution of D01/D02. No production deployment, service installation or later-module implementation is authorized by the foundation's local test results.
+Prepare Module 01 by resolving D01 (school/installation scope) and D02 (identity/bootstrap/session/security policy) in canonical documentation, then obtain separate implementation authorization. This task documents only the gate exception; Module 01 has not started. In parallel, arrange access to the required clean Windows 11 VM and execute the unchanged F00-02/F00-13 procedure against identified artifacts, recording commit/hash, guest inventory, commands and outcomes. Revalidate affected foundation behavior after changes and close F00-17 before Module 05 starts.

@@ -1271,6 +1271,8 @@ The hierarchy of authority is:
 
 Where documents conflict, the conflict must be identified and resolved rather than silently choosing one. ADR-0001 clarifies this hierarchy and scoped module acceptance; PROJECT_STATE records facts and authorized scope, not exceptions to requirements.
 
+The owner-approved Module 00 gate exception dated 2026-10-02 in ADR-0001 permits conditional progression through Modules 01-04 while F00-02/F00-13/F00-17 evidence is deferred. Module 00 remains NOT FROZEN; those criteria must pass and Module 00 must freeze before Module 05 starts. Other module decisions, authorization, regression and acceptance gates remain unchanged.
+
 ---
 
 # 49. Change Management

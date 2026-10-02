@@ -1234,6 +1234,8 @@ Tests must not be weakened merely to produce a passing build.
 
 Each development module has a testing gate. ADR-0001 allocates cross-module obligations without waiving them: freeze covers the fully verified module baseline, not unimplemented future integrations. Module 03 retains actual offline CBT tests; managed installation/sync regression follows in 05, AI integration in 07 and derived analytics integration in 08. Module 00 evidence is specified in `modules/00-foundation/ACCEPTANCE_CRITERIA.md`.
 
+The owner-approved Module 00 gate exception dated 2026-10-02 in ADR-0001 permits conditional progression through Modules 01-04 while F00-02/F00-13/F00-17 evidence is deferred. Module 00 remains NOT FROZEN; those criteria must pass and Module 00 must freeze before Module 05 starts. Other module decisions, authorization, regression and acceptance gates remain unchanged.
+
 ## Module 00
 
 * foundation tests;

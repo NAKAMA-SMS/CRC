@@ -231,7 +231,7 @@ Module 02
 → integration test 00 + 01 + 02
 → freeze
 
-The same principle applies throughout the project.
+The same principle applies throughout the project. The owner-approved Module 00 gate exception dated 2026-10-02 in `docs/decisions/ADR-0001-authority-and-module-gates.md` permits conditional progression through Modules 01-04 while F00-02/F00-13/F00-17 evidence is deferred. Module 00 remains NOT FROZEN; all three criteria must pass and Module 00 must freeze before Module 05 starts. Other module decisions, authorization, regression and acceptance requirements remain binding.
 
 ---
 

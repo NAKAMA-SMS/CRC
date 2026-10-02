@@ -1,6 +1,6 @@
 # Module 00 — Foundation Implementation Plan
 
-Status: IMPLEMENTATION DELIVERED; acceptance BLOCKED; not frozen.
+Status: IMPLEMENTATION COMPLETE; remaining validation DEFERRED; NOT FROZEN.
 Updated: 2026-10-02
 Decision baseline: [ADR-0001](../../docs/decisions/ADR-0001-authority-and-module-gates.md), [ADR-0002](../../docs/decisions/ADR-0002-module-00-technical-foundation.md).
 Acceptance: [ACCEPTANCE_CRITERIA.md](ACCEPTANCE_CRITERIA.md).
@@ -15,7 +15,9 @@ No accounts, sessions, login UI, school/tenant tables, academic tables, student/
 
 Read AGENTS.md, PROJECT_STATE.md, the two ADRs and this module's acceptance file; consult targeted canonical sections as needed. Check current Git status and preserve unrelated changes. Verify the selected SDK/build tools, package availability and Windows/Linux validation access. Resolve compatible patched versions within ADR-0002 and record exact pins and licensing/advisory evidence; this is the first implementation task, not an unrecorded stack selection. If compatibility or an inaccessible required runner blocks validation, record BLOCKED and the exact missing prerequisite. Do not claim the module frozen using partial evidence.
 
-Production school hardware, deployment secrets and a cloud provider are unnecessary for a disposable foundation. The GitHub remote exists; permission to run hosted CI is not yet demonstrated. Local tests can progress independently, but required CI evidence remains an acceptance gate.
+Production school hardware, deployment secrets and a cloud provider are unnecessary for a disposable foundation. Both hosted jobs passed for commit 8adf1ab in run 36969033339; results and artifact hashes are recorded in EVIDENCE.md. Clean Windows 11 VM access and its required execution evidence remain acceptance gates.
+
+The owner-approved 2026-10-02 gate exception in ADR-0001 allows conditional progression through Modules 01-04 while the remaining F00-02/F00-13/F00-17 evidence is deferred. Module 00 acceptance owns closure; all three must pass and Module 00 must freeze before Module 05 starts. No pass condition is waived and no later implementation is authorized by this plan update.
 
 ## Work sequence
 

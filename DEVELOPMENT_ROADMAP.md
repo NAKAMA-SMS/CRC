@@ -178,6 +178,8 @@ The high-level dependency chain is:
 
 Cross-module acceptance is allocated explicitly in ADR-0001. A module freezes only its fully tested allocated baseline; whole-system architecture definitions of done remain open until all required integrations pass. Local host/SQLite start in 00, local identity in 01 and real offline CBT in 03; 05 adds managed installation/synchronization. Teacher derived analytics and analytics-grounded AI integration complete in 08. No later obligation may be recorded as passed at an earlier freeze.
 
+The owner-approved Module 00 gate exception dated 2026-10-02 in ADR-0001 permits conditional progression through Modules 01-04 while F00-02/F00-13/F00-17 evidence is deferred. Module 00 remains NOT FROZEN; those criteria must pass and Module 00 must freeze before Module 05 starts. Other module decisions, authorization, regression and acceptance gates remain unchanged.
+
 The dependency chain must not be interpreted as permission to bypass required prerequisites.
 
 ---
@@ -1441,4 +1443,4 @@ The CRC development roadmap is complete when the implementation has progressed t
 
 The project must prioritize **correctness, security, reliability, maintainability, and documented behavior over development speed**.
 
-> **Build each module completely, verify it, integrate it, protect it against regression, document it, freeze it, and only then move to the next major module.**
+> **Build each module completely, verify it, integrate it, protect it against regression, document it, freeze it, and only then move to the next major module, subject only to the explicit Module 00 timing exception in ADR-0001.**

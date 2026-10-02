@@ -36,6 +36,20 @@ Keep modules 00 through 09 in their existing order. A module's scoped baseline c
 
 This is an explicit allocation of cross-module acceptance, not a waiver of product requirements. The detailed 01-09 plans must include their applicable incoming/outgoing obligations before their implementation.
 
+### Approved Module 00 gate exception — 2026-10-02
+
+Approval: the project owner explicitly instructed the agent to document the proposed deferral after being told that it leaves Module 00 unfrozen, permits progression after D01/D02 resolution, and requires the outstanding evidence before Module 05 starts. This amends the normal freeze-before-next-module sequence; it does not amend ADR-0002's technical requirements.
+
+Rationale: hosted Linux/Windows checks passed for commit 8adf1ab, but the owner has no clean Windows 11 VM available. Requiring that environment now prevents further development despite the verified foundation. The accepted consequence is reduced deployment assurance and possible rework in dependent modules when clean-environment testing occurs.
+
+- Module 00 is **implementation complete; validation DEFERRED; NOT FROZEN**. F00-02 (remaining OS-level outbound isolation), F00-13 (clean Windows 11, runtime/tool absence, non-admin operation and graceful stop/restart/persistence) and the dependent F00-17 closure remain outstanding and not PASS. Existing partial evidence is preserved.
+- Modules 01 through 04 may progress in the existing order under this exception, each only with its own resolved decisions, authorized scope, acceptance checks and foundation regression/integration checks. Module 01 implementation still requires explicit D01/D02 resolution and separate task authorization. This documentation change does not start it.
+- All three outstanding criteria must have real reproducible evidence, defects resolved and Module 00 frozen **before Module 05 starts**. Ownership is the Module 00 acceptance workstream, enforced at the Module 05 entry gate; it is not transferred to Module 05 implementation or final release.
+- The clean Windows 11 x64 VM requirement and all original pass conditions remain unchanged. A development PC, hosted Windows Server runner, mock or skipped check cannot substitute. Record tested commit/artifact hashes, guest inventory, commands and outcomes; rerun affected regression checks if implementation changes before closure.
+- No other acceptance or security obligation is deferred. In particular, Module 03's real offline CBT/recovery gate remains mandatory. Reopen the affected work earlier if a dependency exposes an unverified foundation behavior or defect. No production deployment is authorized by this exception.
+
+This is a one-time sequencing exception, not a general permission to proceed past incomplete modules. The normal lifecycle and truthful freeze rule remain in effect for all other work.
+
 ### Design and illustrative material
 
 CRC is the product, NAKAMA the provider and Christian Royal College the customer. Product attribution remains CRC powered by NAKAMA. No corporate website is in scope.
