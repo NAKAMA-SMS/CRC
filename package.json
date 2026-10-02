@@ -1,0 +1,28 @@
+{
+  "name": "crc-foundation",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": [
+    "apps/web",
+    "tests/e2e"
+  ],
+  "engines": {
+    "node": "24.16.0",
+    "npm": "11.21.0"
+  },
+  "packageManager": "npm@11.21.0",
+  "scripts": {
+    "check": "eslint apps/web tests/e2e && prettier --check apps/web tests/e2e package.json eslint.config.js && npm run typecheck --workspace apps/web",
+    "test:e2e": "npm run test --workspace tests/e2e"
+  },
+  "devDependencies": {
+    "@eslint/js": "10.0.1",
+    "@types/node": "24.19.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "eslint": "10.11.0",
+    "eslint-plugin-react-hooks": "7.1.1",
+    "prettier": "3.9.9",
+    "typescript-eslint": "8.71.0"
+  }
+}

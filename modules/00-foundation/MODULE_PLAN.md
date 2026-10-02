@@ -1,13 +1,13 @@
 # Module 00 — Foundation Implementation Plan
 
-Status: READY FOR IMPLEMENTATION HANDOFF; not implemented or accepted.
-Date: 2026-10-01
+Status: IMPLEMENTATION DELIVERED; acceptance BLOCKED; not frozen.
+Updated: 2026-10-02
 Decision baseline: [ADR-0001](../../docs/decisions/ADR-0001-authority-and-module-gates.md), [ADR-0002](../../docs/decisions/ADR-0002-module-00-technical-foundation.md).
 Acceptance: [ACCEPTANCE_CRITERIA.md](ACCEPTANCE_CRITERIA.md).
 
 ## Objective and authorized boundary
 
-Deliver a reproducible CRC technical foundation that starts in Online/PostgreSQL and Local/SQLite profiles, serves a locally bundled minimal client, and demonstrates configuration, migrations, safe API behavior, observability and Windows publication. CRC is the product; NAKAMA is its technology provider. This document is a plan, not authorization to implement during the preparation pass.
+Deliver a reproducible CRC technical foundation that starts in Online/PostgreSQL and Local/SQLite profiles, serves a locally bundled minimal client, and demonstrates configuration, migrations, safe API behavior, observability and Windows publication. CRC is the product; NAKAMA is its technology provider. Implementation was separately authorized and has been performed within this boundary. See [EVIDENCE.md](EVIDENCE.md) for actual results and remaining gates; the plan does not itself prove acceptance.
 
 No accounts, sessions, login UI, school/tenant tables, academic tables, student/teacher dashboards, assessment engine, audit store, outbox, synchronization, OCR, Ollama integration, analytics or product-design library. No public registration, corporate website, installer, service registration, deployment to production or real school data. No future placeholder models or permissive authentication stubs.
 
@@ -29,7 +29,7 @@ Production school hardware, deployment secrets and a cloud provider are unnecess
 
 ## Intended command contract
 
-These commands describe artifacts to implement in Module 00; they do not run today. Execute from repository root after configuring disposable databases through documented protected inputs. No command embeds a secret.
+These commands are implemented. Execute from repository root after configuring disposable databases through documented protected inputs; [SETUP.md](SETUP.md) describes prerequisites and safe fixture wrappers. No command embeds a secret. Exact executed results are in EVIDENCE.md.
 
 | Command | Required result |
 |---|---|
@@ -50,7 +50,7 @@ These commands describe artifacts to implement in Module 00; they do not run tod
 | npm audit | npm advisory evidence, reviewed under ADR-0002 policy |
 | gitleaks git . --redact | Pinned secret-scanner check; no secret values in artifacts |
 
-The Windows wrapper must include dotnet publish of src/CRC.Api with -c Release -r win-x64 --self-contained true, trimming and single-file disabled. It also publishes CRC.DbMigrator self-contained for win-x64, without trimming/single-file packaging, so a clean runtime host can apply the baseline. It stages apps/web build output into the host's static assets and tests the result outside the source directory. Scripts document their prerequisite versions and clean only their own verified disposable fixture paths. Database tests cannot point at production/staging or use default guessed credentials.
+The Windows wrapper includes dotnet publish of src/CRC.Api with -c Release -r win-x64 --self-contained true, RestoreLockedMode=true, trimming and single-file disabled. It also publishes CRC.DbMigrator self-contained for win-x64, without trimming/single-file packaging, so a clean runtime host can apply the baseline. Explicit runtime identifiers keep ordinary and publication lock graphs consistent (ADR-0002 implementation clarification). It stages apps/web build output into the host's static assets and tests the result outside the source directory. Scripts document their prerequisite versions and clean only their own verified disposable fixture paths. Database tests cannot point at production/staging or use default guessed credentials.
 
 Test-runner adapter details, exact patch versions and script implementation are checked during implementation and recorded in setup/evidence. Any necessary change to this public command contract must update both plan and acceptance documents before handoff.
 

@@ -1,7 +1,7 @@
 # ADR-0002: Module 00 technical foundation
 
 Date: 2026-10-01
-Status: Accepted technical baseline; implementation and compatibility evidence pending.
+Status: Accepted technical baseline; local implementation verified, final acceptance blocked. See modules/00-foundation/EVIDENCE.md.
 Scope: Module 00 infrastructure only. Product requirements remain repository-defined.
 
 ## Context and rationale
@@ -125,5 +125,13 @@ Repository requirements are authoritative for CRC behavior. The following offici
 - [OpenAPI support](https://learn.microsoft.com/en-us/aspnet/core/fundamentals/openapi/overview?view=aspnetcore-10.0), [xUnit v3](https://xunit.net/docs/getting-started/v3/getting-started) and [Playwright](https://playwright.dev/docs/intro) document the chosen contract/test tooling.
 
 ## Consequences
+
+### Implementation clarification — 2026-10-02
+
+Publication testing exposed NU1004: an implicit `-r win-x64` publish changed the lockfiles' runtime graph, so a subsequent ordinary locked solution restore failed. This is a reproducibility defect, not permission to disable locked restore. Declare `win-x64` explicitly in the shared build properties for the already selected Windows artifact. Linux CI uses the portable, framework-dependent net10.0 target; no additional Linux self-contained artifact/runtime pack is required. Regenerate the exact lock graphs once and require locked restore during publication as well as ordinary verification. Verify restore again after publication. No framework/provider/version-line or product-scope decision changes.
+
+Provider configuration must also enforce the existing no-disabled-certificate-validation and database-transport requirements rather than inherit Npgsql's permissive transport default. PostgreSQL requires explicit `SSL Mode=VerifyFull`; the only plaintext exception is an explicitly selected Development/Test loopback fixture. Staging/Production cannot use that exception. This does not select production certificate provisioning or change D07; it makes unsafe configuration fail before a connection is attempted.
+
+The total initial schema-validation startup budget is 30 seconds, including provider initialization; applying the two-second HTTP-readiness deadline to that whole cold-start operation caused a publication startup failure. This does not relax the established two-second readiness endpoint budget or two-second schema query command timeout. No traffic is served before successful schema validation, and expiry still fails startup closed.
 
 This is sufficient to implement a bounded foundation without selecting later business rules. It does not prove package compatibility, hardware capacity or production readiness. Module 00 must provide that scope's executable evidence. The initial ADRs are intentionally two records: governance/gates and the cohesive foundation baseline; later independent architecture changes receive their own records when actually needed.

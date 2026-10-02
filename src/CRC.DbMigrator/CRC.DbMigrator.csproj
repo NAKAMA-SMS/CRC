@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><UserSecretsId>crc-foundation-development</UserSecretsId></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../CRC.Foundation/CRC.Foundation.csproj" />
+    <ProjectReference Include="../CRC.Persistence.Sqlite/CRC.Persistence.Sqlite.csproj" />
+    <ProjectReference Include="../CRC.Persistence.Postgres/CRC.Persistence.Postgres.csproj" />
+  </ItemGroup>
+  <ItemGroup><InternalsVisibleTo Include="CRC.Foundation.Tests" /></ItemGroup>
+  <ItemGroup><Content Include="../CRC.Foundation/appsettings.json" Link="appsettings.json" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" /></ItemGroup>
+</Project>

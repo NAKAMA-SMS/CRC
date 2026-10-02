@@ -1,0 +1,6 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Generated build outputs, downloaded tools and third-party dependency trees are not CRC source. Scan tracked history and all other working-tree files."
+paths = ['''(^|[\\/])(node_modules|artifacts|\.tools|bin|obj)([\\/]|$)''']

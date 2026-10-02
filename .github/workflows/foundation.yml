@@ -1,0 +1,80 @@
+name: CRC Foundation
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  foundation:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-dotnet@67a3573c9a986a3f9c594539f4ab511d57bb3ce9
+        with:
+          global-json-file: global.json
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version-file: .node-version
+      - name: Exact npm and locked restores
+        run: |
+          npm install --global npm@11.21.0
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          npm ci
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          dotnet tool restore
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          dotnet restore CRC.sln --locked-mode
+          exit $LASTEXITCODE
+      - name: Quality and builds
+        run: |
+          dotnet format CRC.sln --verify-no-changes --no-restore
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          npm run check
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          npm run build --workspace apps/web
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          dotnet build CRC.sln -c Release --no-restore
+          exit $LASTEXITCODE
+      - name: Linux real PostgreSQL and SQLite tests
+        if: runner.os == 'Linux'
+        run: ./scripts/Test-Postgres.ps1
+      - name: Windows SQLite and HTTP tests
+        if: runner.os == 'Windows'
+        run: |
+          $env:CRC_TEST_EVIDENCE_DIR = "$pwd/artifacts/evidence"
+          dotnet test CRC.sln -c Release --no-build --filter 'FullyQualifiedName!~PostgresTests' --logger trx --results-directory artifacts/evidence/tests
+          exit $LASTEXITCODE
+      - name: Locked browser
+        run: npx --no-install playwright install --with-deps chromium
+      - name: Linux built browser checks
+        if: runner.os == 'Linux'
+        run: ./scripts/Verify-Browser.ps1
+      - name: Windows publication and browser checks
+        if: runner.os == 'Windows'
+        run: ./scripts/Verify-WindowsPublish.ps1
+      - name: Dependency and secret checks
+        run: |
+          dotnet list CRC.sln package --vulnerable --include-transitive
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          npm audit
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          ./scripts/Write-DependencyInventory.ps1
+          ./scripts/Install-Scanner.ps1
+          gitleaks git . --redact --report-format json --report-path artifacts/evidence/gitleaks.json
+          exit $LASTEXITCODE
+      - name: Sanitized evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: foundation-${{ matrix.os }}
+          path: artifacts/evidence
+          if-no-files-found: error

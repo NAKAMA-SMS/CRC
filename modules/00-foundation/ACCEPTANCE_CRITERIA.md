@@ -1,11 +1,11 @@
 # Module 00 — Acceptance Criteria
 
-Status: NOT EXECUTED. All criteria below are pending implementation.
-Date: 2026-10-01
+Status: PARTIALLY VERIFIED; acceptance BLOCKED; NOT FROZEN.
+Updated: 2026-10-02
 Scope and command contract: [MODULE_PLAN.md](MODULE_PLAN.md).
 Technical contract: [ADR-0002](../../docs/decisions/ADR-0002-module-00-technical-foundation.md).
 
-A documentation-ready module is not an implemented module. No checkbox is passed by this preparation pass. Retain an evidence table with criterion ID, exact command/manual procedure, environment/tool versions, result and sanitized artifact reference when execution occurs. A missing runner/database/tool blocks its required check; mocks and skipped tests are not substitutes.
+A documented or locally running module is not automatically accepted. The executed command/environment/artifact table and per-criterion status are recorded in [EVIDENCE.md](EVIDENCE.md). F00-03 through F00-12, F00-14 and F00-16 have local passing evidence. F00-01, F00-02, F00-13, F00-15 and F00-17 remain BLOCKED on hosted/clean-environment evidence. The original pass conditions below are unchanged. A missing runner/database/tool blocks its required check; mocks and skipped tests are not substitutes.
 
 ## Gates
 

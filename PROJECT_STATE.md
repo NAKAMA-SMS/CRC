@@ -1,22 +1,22 @@
 # CRC Project State
 
-Updated: 2026-10-01
-Current phase: Module 00 preparation complete; implementation NOT STARTED.
+Updated: 2026-10-02
+Current phase: Module 00 implementation delivered; acceptance BLOCKED; NOT FROZEN.
 Product: CRC, powered by NAKAMA; Christian Royal College is the customer context. Corporate website and unrelated company systems remain outside this repository.
 
 ## Verified baseline and work performed
 
-Starting implementation snapshot: 4755c48, documentation-only, clean working tree at inspection. The Engineering Readiness Report at `../Report/CRC-Engineering-Readiness-Report.md` was the starting audit, not authority over canonical requirements. Findings were checked against targeted repository sections. Official vendor documents were consulted only for technical feasibility of newly selected tools; sources are in ADR-0002.
+The preparation audit began at 4755c48. This implementation task initially inspected 28e1c12 with preparation documentation changes; those changes subsequently appeared in commit e8e1d48. Existing preparation work was preserved. The readiness report remains historical audit context, not authority over the accepted ADRs/module specification. The agent has not committed or pushed the implementation.
 
-No application, manifests, lockfiles, database schema/migrations, tests, CI or installer has been implemented. No module is complete or frozen. Module directories 01-09 have no specifications. This preparation pass created documentation and made targeted consistency corrections only; no dependencies installed, tests executed, production actions or commits performed.
+Module 00 now contains five production projects (API, Foundation, PostgreSQL, SQLite, DbMigrator), one xUnit project, the static React client, Playwright tests, exact tool/package locks, independent baseline migrations, configuration/security/error/logging/health behavior, validation scripts and a two-platform GitHub Actions workflow. Windows API and migrator artifacts were published and exercised. No domain tables, identity/users, academic/CBT workflows, sync, OCR, AI, analytics, installer/manager or production deployment exists. No module is complete or frozen. Module 01 has not started.
 
 ## Accepted foundation decisions
 
 - [ADR-0001](docs/decisions/ADR-0001-authority-and-module-gates.md): existing document precedence preserved and clarified; decisions close before affected implementation; scoped module freezes and cross-module acceptance ownership; design/examples cannot add requirements.
 - [ADR-0002](docs/decisions/ADR-0002-module-00-technical-foundation.md): .NET/ASP.NET Core 10, C# 14, React 19.3/TypeScript 6.0/Vite 8.3, Node 24/npm 11 for builds; EF Core 10 with separate PostgreSQL/SQLite contexts and migrations; explicit host/API/config/logging/health contracts; xUnit/Playwright/GitHub Actions; self-contained Windows publishing foundation.
-- [Module plan](modules/00-foundation/MODULE_PLAN.md) and [acceptance criteria](modules/00-foundation/ACCEPTANCE_CRITERIA.md) define the concrete implementation handoff. All F00 criteria remain NOT EXECUTED.
+- [Module plan](modules/00-foundation/MODULE_PLAN.md), [acceptance criteria](modules/00-foundation/ACCEPTANCE_CRITERIA.md), [setup](modules/00-foundation/SETUP.md) and [evidence](modules/00-foundation/EVIDENCE.md) define the implemented foundation and remaining acceptance gates.
 
-No remaining architectural/product decision blocks the bounded Module 00 scope. Exact dependency patch resolution and executable validation are its first tasks, not already-proven results. Compatibility problems must reopen the relevant ADR instead of changing the stack silently.
+The selected stack lines were preserved and exact packages resolved. ADR-0002 was clarified for an explicit Windows publication runtime graph, fail-closed PostgreSQL transport, and a distinct bounded cold-start budget; it does not change product scope or waive the two-second health-probe budget. No new ADR was necessary. Remaining Module 00 blockers are execution evidence, not a license to begin later modules.
 
 ## Deferred decision register
 
@@ -51,10 +51,14 @@ BLOCKED below means the named later decision cannot safely be closed from existi
 
 ## Environment and evidence status
 
-Repository origin is GitHub. Hosted Actions permissions, a clean Windows validation VM and selected SDK/packages are not yet verified. These are execution prerequisites/acceptance risks, not evidence of passed checks. If unavailable during implementation, record the exact missing access/tool as BLOCKED and continue only independent work. Required checks cannot be silently skipped.
+Verified locally on Windows 11 Pro 10.0.26200 with a non-elevated token: .NET 10.0.401/runtime 10.0.12, Node 24.16.0/npm 11.21.0, PowerShell 7.6.6, PostgreSQL 17.11 (disposable container), SQLite 3.53.3 and pinned Chromium revision 1243. Portable tooling was provisioned for this task; setup instructions do not depend on its temporary installation paths.
 
-Preparation validation: targeted document/diff review completed; local Markdown links in all six new/updated handoff and decision files resolve; git diff --check passed after correcting one trailing-space finding. Scope inventory confirms documentation-only changes. Application tests and integration execution are NOT RUN because application/test infrastructure does not exist. Selected package compatibility and CI/Windows runtime evidence remain unverified until Module 00.
+Final environment recheck: the temporary SDK was no longer available after the successful full verification cycle; a post-documentation formatter repeat could not start. Cause unresolved. Reprovision the pinned development tools before local reproduction; do not interpret earlier test evidence as a claim that those temporary tools remain installed. No application source changed after the passing cycle.
+
+Passed: locked restores; .NET formatting/Release build with zero warnings; frontend lint/format/type/build; **38 tests, zero failures/skips**, including real-provider transactions, migration locks/failed upgrades, runtime DDL denial, HTTP/configuration/redaction and a real blocked PostgreSQL readiness query; **one published browser test**; self-contained Windows API/migrator publication, concurrent migrator processes, repeat/status, loopback-only listener, protected external data and abrupt restart. Advisory scans reported no vulnerabilities; redacted Git-history/working-tree scans reported no leaks. License inventory/review and OpenAPI artifact exist. Raw local evidence is under ignored artifacts/evidence; the criterion ledger is in EVIDENCE.md.
+
+Fixed defects: test bootstrap/controller discovery, test cancellation compliance, SQLite fixture pooling, publication-induced lockfile drift, cold-start timeout scoping and provider transport defaults. No known local failure is being waived. Required remaining evidence: fresh hosted Linux/Windows runs (F00-01/F00-15), clean Windows VM with SDK/runtime/Node absent and graceful shutdown (F00-13), OS-level Internet denial for the host (F00-02), and the resulting overall handoff gate (F00-17). No hosted CI run or clean-VM validation has occurred. A VM availability question was sent; no environment has been supplied. Later decision gates and integration obligations above are unchanged.
 
 ## Exact next action
 
-The next separately assigned task is to implement Module 00 only, starting with the MODULE_PLAN preflight and locked toolchain/project skeleton. Follow F00-01 through F00-17, update this record with actual evidence and freeze only the verified foundation. Do not begin Module 01 until Module 00 passes and D01/D02 are explicitly resolved. This preparation task ends before any implementation.
+Review the Module 00 changes, run the committed source through both hosted CI jobs, and execute the documented clean Windows VM procedure with host Internet blocked. Record run links/manual evidence, fix any failures, and close F00-01/02/13/15/17 before freezing Module 00. Do not begin Module 01 until that freeze and explicit resolution of D01/D02. No production deployment, service installation or later-module implementation is authorized by the foundation's local test results.
